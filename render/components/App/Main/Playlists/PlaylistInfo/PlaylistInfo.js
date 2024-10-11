@@ -1,3 +1,5 @@
+import { DeletePlaylistModal } from "./DeletePlaylistModal.js";
+
 export function PlaylistInfo(playlist) {
     const container = document.createElement("div");
     container.classList.add("playlist-info");
@@ -22,6 +24,7 @@ export function PlaylistInfo(playlist) {
 
     const buttonsContainer = document.createElement("div");
     buttonsContainer.classList.add("buttons-container");
+
     const button1 = document.createElement("button");
     const button1Img = document.createElement("img");
     button1Img.classList.add("button-icon");
@@ -29,18 +32,33 @@ export function PlaylistInfo(playlist) {
     button1Img.alt = "edit";
     button1.append(button1Img)
 
-    const button2 = document.createElement("button");
-    const button2Img = document.createElement("img");
-    button2Img.classList.add("button-icon");
-    button2Img.src = "img/icons/basket.svg";
-    button2Img.alt = "delete";
-    button2.append(button2Img)
+    const buttonDelete = ButtonDelete()
 
-    buttonsContainer.append(button1, button2)
+    buttonsContainer.append(button1, buttonDelete)
 
     divElement2.append(buttonsContainer)
 
     container.append(playlistCoverElement, divElement1, divElement2)
     
     return container;
+}
+
+function ButtonEdit() {
+    return;
+};
+
+function ButtonDelete() {
+    const buttonElement = document.createElement("button");
+    buttonElement.addEventListener(
+        "click", DeletePlaylistModal
+    )
+
+    const imageElement = document.createElement("img"); 
+    imageElement.classList.add("button-icon");
+    imageElement.src = "img/icons/basket.svg";
+    imageElement.alt = "delete";
+
+    buttonElement.append(imageElement)
+
+    return buttonElement;
 }
