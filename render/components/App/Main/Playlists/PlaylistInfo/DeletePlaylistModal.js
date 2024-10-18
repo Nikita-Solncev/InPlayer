@@ -1,8 +1,8 @@
 export function DeletePlaylistModal(event) {
     const dialogElement = document.createElement("dialog");
 
-    dialogElement.open = true;
-    dialogElement.id = "dialogDelete";
+    dialogElement.id = "modalDelete";
+    dialogElement.class = "modalDelete"
     
     const headingElement = document.createElement("h2");
     headingElement.innerText = "Delete Playlist";
@@ -17,21 +17,23 @@ export function DeletePlaylistModal(event) {
     buttonCancelElement.id = "dialog-button-cancel";
     buttonCancelElement.addEventListener (
         "click", ()=>{
-            try {
-            dialogElement.close();
-            } catch (error) {
-                console.error("Error closing dialog:", error);
-        }
+            dialogElement.close()
         }
     )
 
     const buttonDeleteElement = document.createElement("button");
-    buttonDeleteElement.innerText = "Delete"
-    buttonDeleteElement.id = "dialog-button-delete";
-    
+    buttonCancelElement.type = "button"
+    buttonCancelElement.innerText = "Delete"
+    buttonCancelElement.id = "dialog-button-delete";
+    buttonCancelElement.addEventListener (
+        "click", ()=>{
+            dialogElement.close();
+        }
+    )
     
 
     dialogElement.append(headingElement, paragraphElement, buttonCancelElement, buttonDeleteElement);
     document.body.append(dialogElement)
 
+    return dialogElement;
 }

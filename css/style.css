@@ -245,18 +245,24 @@ audio::-webkit-media-controls-timeline-container {
 }
 
 /* Block-modal //======================================================================================================================================================== */
-dialog  {
-	display: flex;
-	justify-content: center;
-	position: absolute;
-	align-items: center;
-	top: 0;
-	left:0;
-	background: rgb(17, 17, 17, 0.9);
-	z-index: 1000;
-	height: 100vh;
-	width: 100vw;
+dialog {
+    display: none; /* Начальное состояние */
+    justify-content: center;
+    align-items: center;
+    position: fixed; /* Для фиксирования диалога на экране */
+    top: 0;
+    left: 0;
+    background: rgba(17, 17, 17, 0.9); /* rgba для правильной прозрачности */
+    z-index: 1000;
+    height: 100vh;
+    width: 100vw;
 }
+
+/* Открытое состояние */
+dialog[open] {
+    display: flex; /* Отображается только когда открыт */
+}
+
 
 .block-modal {
 	border-radius: 4px;

@@ -49,8 +49,10 @@ function ButtonEdit() {
 
 function ButtonDelete() {
     const buttonElement = document.createElement("button");
-    buttonElement.addEventListener(
-        "click", DeletePlaylistModal
+    const modal = DeletePlaylistModal()
+    buttonElement.addEventListener("click", () => {
+        modal.showModal()
+    }
     )
 
     const imageElement = document.createElement("img"); 
