@@ -1,4 +1,6 @@
-export const data = {
+import { render } from "../render/render.module.js";
+
+export let data = {
     playlists: [
         {
             playlistInfo: {
@@ -53,4 +55,9 @@ export const data = {
             ]
         }
     ],
+};
+
+export function deletePlaylist(id) {
+    data = data.playlists.filter(playlist => playlist.playlistInfo.id !== id);
+    render(data);
 }

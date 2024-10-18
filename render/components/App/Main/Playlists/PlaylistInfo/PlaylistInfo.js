@@ -32,7 +32,7 @@ export function PlaylistInfo(playlist) {
     button1Img.alt = "edit";
     button1.append(button1Img)
 
-    const buttonDelete = ButtonDelete()
+    const buttonDelete = ButtonDelete(playlist.playlistInfo.id)
 
     buttonsContainer.append(button1, buttonDelete)
 
@@ -47,9 +47,9 @@ function ButtonEdit() {
     return;
 };
 
-function ButtonDelete() {
+function ButtonDelete(playlistId) {
     const buttonElement = document.createElement("button");
-    const modal = DeletePlaylistModal()
+    const modal = DeletePlaylistModal(playlistId)
     buttonElement.addEventListener("click", () => {
         modal.showModal()
     }

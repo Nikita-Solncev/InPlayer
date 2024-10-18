@@ -1,4 +1,6 @@
-export function DeletePlaylistModal(event) {
+import { deletePlaylist } from "../../../../../../data/data.js";
+
+export function DeletePlaylistModal(playlistId) {
     const dialogElement = document.createElement("dialog");
 
     dialogElement.id = "modalDelete";
@@ -27,6 +29,7 @@ export function DeletePlaylistModal(event) {
     buttonCancelElement.id = "dialog-button-delete";
     buttonCancelElement.addEventListener (
         "click", ()=>{
+            deletePlaylist(playlistId)
             dialogElement.close();
         }
     )
