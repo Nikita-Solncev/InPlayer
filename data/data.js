@@ -58,6 +58,11 @@ export let data = {
 };
 
 export function deletePlaylist(id) {
-    data = data.playlists.filter(playlist => playlist.playlistInfo.id !== id);
+
+    // Создаем новый массив плейлистов, исключая плейлист с переданным id
+    const updatedPlaylists = data.playlists.filter(playlist => playlist.playlistInfo.id !== id);
+
+    // Обновляем объект data, оставляя неизменным другие свойства
+    data = { ...data, playlists: updatedPlaylists };
     render(data);
 }
